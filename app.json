@@ -1,0 +1,187 @@
+{
+  "name": "LynxSuperFederation",
+  "description": "A Lynx that manages a group that puts the federation first.",
+  "logo": "https://telegra.ph/file/7effdc55f47f4d9a16173.jpg",
+  "keywords": [
+     "telegram",
+     "group",
+     "manager",
+     "logs"
+  ],
+   "repository": "https://github.com/unknownkz/LynxSuperFederation",
+   "addons": [{
+       "plan": "heroku-postgresql:hobby-dev",
+       "options": {
+         "version": "12"
+       }
+   }],
+   "buildpacks": [{
+     "url": "https://github.com/heroku/heroku-buildpack-python"
+   },{
+     "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
+   },{
+     "url": "https://github.com/heroku/heroku-buildpack-apt.git"
+   },{
+     "url": "https://github.com/chrismytton/heroku-buildpack-jq"
+   }],
+  "env": {
+     "API_ID": {
+       "description": "Get API_ID from my.telegram.org",
+       "value": "",
+       "required": true
+     },
+     "API_HASH": {
+       "description": "Get API_HASH from my.telegram.org",
+       "value": "",
+       "required": true
+     },
+     "OWNER_ID": {
+       "description": "Your user ID as an integer",
+       "value": "",
+       "required": false
+     },
+     "OWNER_USERNAME": {
+       "description": "Your Username without the @",
+       "value": "",
+       "required": true
+     },
+     "JOIN_LOGGER": {
+       "description": "A channel where bot will print who added it to what group, useful during debugging or spam handling.",
+       "value": "-100",
+       "required": true
+     },
+     "EVENT_LOGS": {
+       "description": "Event Logs Channel to note down important bt level events, recommend to make this Public. ex: '-100'",
+       "value": "-100",
+       "required": true
+     },
+     "ERROR_LOGS": {
+       "description": "Error Logs Channel to note down important Bt errors events, make this Public/Private. ex: '-100'",
+       "value": "-100"
+       "required": true
+     },
+     "TGB_ID": {
+       "description": "to get ur bt_id.",
+       "value": "",
+       "required": true
+     },
+     "TGB_TOKEN": {
+       "description": "Go to Telegram and Take bt token at @BotFather",
+       "value": "",
+       "required": false
+     },
+     "TGB_USERNAME": {
+       "description": "Fill ur Bt Username which from @BotFather",
+       "value": "",
+       "required": true
+     },
+     "DEV_ID": {
+       "description": "ID of users who are Devs of your bt (can use /py etc.). If you are a noob and would come and bother Masha support then keep the current ID's here at they are and add yours",
+       "value": "",
+       "required": false
+     },
+     "SD_ID": {
+       "description": "A space separated list of user IDs who you want to assign as SUDO Users",
+       "value": "",
+       "required": false
+     },
+     "SUPPORT_ID": {
+       "description": "A space separated list of user IDs who you wanna assign as SUPPORT Users(GBAN Perms Only)",
+       "value": "",
+       "required": false
+     },
+     "TIGERS_ID": {
+       "description": "A space separated list of user IDs who you wanna assign as TIGER Users",
+       "value": "",
+       "required": false
+     },
+     "WHITELIST_ID": {
+       "description": "A space separated list of user IDs who you want to assign as WHITELISTED - can't be banned with ur bt",
+       "value": "",
+       "required": false
+     },
+     "HEROKU_APP_NAME": {
+       "description": "Name Of App Heroku.",
+       "value": "",
+       "required": true
+     },
+     "HEROKU_API_KEY": {
+       "description": "Your HEROKU Api Key, get from 'https://dashboard.heroku.com/account'",
+       "value": "Check On Your Heroku Dashboard -> Settings",
+       "required": true
+     },
+     "SQLALCHEMY_DATABASE_URI": {
+       "description": "Your Postgres SQl Database, empty this field if you dont have one",
+       "value": "sqldbtype://username:pw@hostname:port/db_name",
+       "required": false
+     },
+     "STRING_SESSION": {
+       "description": "Fill with telethon string session.",
+       "value": "",
+       "required": true
+     },
+     "SUPPORT_CHAT": {
+       "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
+       "value": "lsf_supportgroup",
+       "required": true
+     },
+     "ARQ_API": {
+       "description": "Go to Telegram and Get this from @ARQRobot",
+       "value": "",
+       "required": false
+     },
+     "ALLOW_EXCL": {
+       "description": "Set this to True if you want ! to be a command prefix along with /. Recommended is True",
+       "value": "True"
+     },
+     "NO_LOAD": {
+       "description": "Dont load these modules cause they shit, space separation",
+       "value": "rss",
+       "required": false
+     },
+     "DEL_CMDS": {
+       "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
+       "value": "True"
+     },
+     "BLACKLIST_CHATS": {
+       "description": "List of chats you want blacklisted.",
+       "value": "",
+       "required": false
+     },
+     "SPAMWATCH_API": {
+       "description": "Go to Telegram and Get one from @SpamWatchBot",
+       "value": "",
+       "required": false
+     },
+     "ENV": {
+       "description": "Setting this to ANYTHING will enable Environment variables. Leave it as it is",
+       "value": "ANYTHING",
+       "required": false
+     },
+     "UPSTREAM_REPO": {
+       "description": "LSFederation .if you need custom deploy then type your git repo link",
+       "value": "LynxSuperFederation",
+       "required": false
+     },
+     "WEBHOOK": {
+       "description": "Setting this to ANYTHING will enable webhooks. If you dont know how this works leave it as it is",
+       "value": "",
+       "required": false
+     },
+     "SERVER_IP": {
+       "description": "fill ur ip address",
+       "value": "",
+       "required": false
+     },
+     "PORT": {
+       "description": "Port to use for your webhooks. Better leave this as it is on heroku",
+       "value": "",
+       "required": false
+     },
+     "URL": {
+       "description": "Don't delete",
+       "value": "https://api.telegram.org/bot",
+       "required": true
+     }
+  }
+}

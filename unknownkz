@@ -1,0 +1,80 @@
+#!/bin/bash
+
+unknown_zip_link () {
+    local regex
+    regex='(https?)://github.com/.+/.+'
+    if [[ $UPSTREAM_REPO == "LynxSuperFederation" ]]
+    then
+        echo "VjFaV2IxVXdNVWhVYTJ4VlZrWndUbHBXVW5Oa1ZteFhZVVpPYVUxc1NsbFZNV2hYVjJzeGNXSkVRbFZTUlRWWVdrWmtSbVZWTlZsWGJYUk9ZV3hhTlZkc1pISk9WbEpZVm14b1QxWkdTbGRVVkVaaFRURmtjMkZGZEZOTldFSlpWbGN4TkdGdFNsWlhXR1JhVm0xTk1WcEdWak5sVmtwMVlrWndUbUpYYUROWGEyTjRWbTFTZEZOc2FGTmlhMHB3V1ZaU1ZrMXNiRmRoUlVwUlZWUXdPUT09" | base64 -d
+    elif [[ $UPSTREAM_REPO == "LynxSuperFederation" ]]
+    then
+        echo "VjFaV2IxVXdNVWhVYTJ4VlZrWndUbHBXVW5Oa1ZteFhZVVpPYVUxc1NsbFZNV2hYVjJzeGNXSkVRbFZTUlRWWVdrWmtSbVZWTlZsWGJYUk9ZV3hhTlZkc1pISk9WbEpZVm14b1QxWkdTbGRVVkVaaFRURmtjMkZGZEZOTldFSlpWbGN4TkdGdFNsWlhXR1JhVm0xTk1WcEdWalJrVjA1SlVXMXdVbFpFUVRVPQ==" | base64 -d
+    elif [[ $UPSTREAM_REPO =~ $regex ]]
+    then
+        if [[ $UPSTREAM_REPO_BRANCH ]]
+        then
+            echo "${UPSTREAM_REPO}/archive/${UPSTREAM_REPO_BRANCH}.zip"
+        else
+            echo "${UPSTREAM_REPO}/archive/main.zip"
+        fi
+    else
+        echo "VjFaV2IxVXdNVWhVYTJ4VlZrWndUbHBXVW5Oa1ZteFhZVVpPYVUxc1NsbFZNV2hYVjJzeGNXSkVRbFZTUlRWWVdrWmtSbVZWTlZsWGJYUk9ZV3hhTlZkc1pISk9WbEpZVm14b1QxWkdTbGRVVkVaaFRURmtjMkZGZEZOTldFSlpWbGN4TkdGdFNsWlhXR1JhVm0xTk1WcEdWak5sVmtwMVlrWndUbUpYYUROWGEyTjRWbTFTZEZOc2FGTmlhMHB3V1ZaU1ZrMXNiRmRoUlVwUlZWUXdPUT09" | base64 -d
+    fi
+}
+
+
+unknownkz_repository () {
+    local regex
+    local rlink
+    regex='(https?)://github.com/.+/.+'
+    if [[ $UPSTREAM_REPO == "LynxSuperFederation" ]]
+    then
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL3Vua25vd25rei9MeW54U3VwZXJGZWRlcmF0aW9u" | base64 -d`
+    elif [[ $UPSTREAM_REPO =~ $regex ]]
+    then
+        rlink=`echo "${UPSTREAM_REPO}"`
+    else
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL3Vua25vd25rei9MeW54U3VwZXJGZWRlcmF0aW9u" | base64 -d`
+    fi
+    echo "$rlink"
+}
+
+
+running_python() {
+    python3${pVer%.*} -c "$1"
+}
+
+
+unknownkz_git() {
+    $(running_python 'from git import Repo as Repository
+import sys
+OFFICIAL_UPSTREAM_REPO = "https://github.com/unknownkz/LynxSuperFederation"
+ACTIVE_BRANCH_NAME = "main"
+repository = Repository.init()
+original = repository.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
+original.fetch()
+repository.create_head(ACTIVE_BRANCH_NAME, original.refs[ACTIVE_BRANCH_NAME])
+repository.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
+}
+
+
+
+setup_lynx () {
+    local zippath
+    zippath="LynxSuperFederation"
+    echo " Downloading Lynx Source, Please wait ..."
+    wget -q $(unknown_zip_link) -O "$zippath"
+    echo "  Unpacking Data ..."
+    LPATH=$(zipinfo -1 "$zippath" | grep -v "/.");
+    unzip -qq "$zippath"
+    echo "  Cleaning ..."
+    rm -rf "$zippath"
+    unknownkz_git
+    cd $LPATH
+    echo "  Starting Lynx  "
+    echo " Please wait... "
+
+    python3 -m lsf
+}
+
+setup_lynx
