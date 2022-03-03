@@ -18,7 +18,9 @@
    "buildpacks": [{
      "url": "https://github.com/heroku/heroku-buildpack-python"
    },{
-     "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
+     "url": "https://github.com/iTzBlack007/heroku-buildpack-Extractors"
+   },{
+     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
    },{
      "url": "https://github.com/heroku/heroku-buildpack-apt.git"
    },{
