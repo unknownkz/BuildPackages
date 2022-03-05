@@ -13,7 +13,6 @@ emoji==1.6.3
 beautifulsoup4==4.10.0
 requests==2.27.1
 telegram==0.0.1
-python-telegram-bot==13.11
 SQLAlchemy==1.4.31
 psycopg2-binary==2.9.3
 pykeyboard==0.1.5
@@ -30,6 +29,7 @@ heroku3==5.1.4
 spamwatch==0.3.0
 pyrate-limiter==2.6.0
 
+git+https://github.com/unknownkz/python-telegram-bot
 cachetools==4.2.2 # python-telegram-bot 13.11 depends on
 
 pretty-errors==1.2.25
