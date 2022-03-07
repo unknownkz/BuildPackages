@@ -72,31 +72,7 @@ setup_lynx () {
     unknownkz_git
     cd $LPATH
     echo "Starting..."
-    echo "
-           _
-          | |
-          | |    _   _ _ __ __  __
-          | |   | | | | '_ \\ \/ /
-          | |___| |_| | | | |>  <
-          \_____/\__, |_| |_/_/\_\
-                  __/ |
-                 |___/
-                    _____
-                   /  ___|
-                   \ `--. _   _ _ __   ___ _ __
-                    `--. \ | | | '_ \ / _ \ '__|
-                   /\__/ / |_| | |_) |  __/ |
-                   \____/ \__,_| .__/ \___|_|
-                               | |
-                               |_|
-                            ______       _                _   _
-                            |  ___|     | |              | | (_)
-                            | |_ ___  __| | ___ _ __ __ _| |_ _  ___  _ __
-                            |  _/ _ \/ _` |/ _ \ '__/ _` | __| |/ _ \| '_ \
-                            | ||  __/ (_| |  __/ | | (_| | |_| | (_) | | | |
-                            \_| \___|\__,_|\___|_|  \__,_|\__|_|\___/|_| |_|
-
-    "
+    echo "IC8kJCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAp8ICQkICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCnwgJCQgICAgICAgLyQkICAgLyQkIC8kJCQkJCQkICAvJCQgICAvJCQKfCAkJCAgICAgIHwgJCQgIHwgJCR8ICQkX18gICQkfCAgJCQgLyQkLwp8ICQkICAgICAgfCAkJCAgfCAkJHwgJCQgIFwgJCQgXCAgJCQkJC8gCnwgJCQgICAgICB8ICQkICB8ICQkfCAkJCAgfCAkJCAgPiQkICAkJCAKfCAkJCQkJCQkJHwgICQkJCQkJCR8ICQkICB8ICQkIC8kJC9cICAkJAp8X19fX19fX18vIFxfX19fICAkJHxfXy8gIHxfXy98X18vICBcX18vCiAgICAgICAgICAgLyQkICB8ICQkICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgIHwgICQkJCQkJC8gICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgIFxfX19fX18v" | base64 -d
     python3 -m lsf
 }
 
