@@ -1,10 +1,15 @@
 # Hand-written
-# Pip freeze > requirements.txt
+# pip freeze > requirements.txt
 
-wheel==0.37.1
-wget==3.2
-pip==22.0.3
-ez_setup==0.9
+# Build requirements
+
+wheel
+wget
+pip
+ez_setup
+
+# ------Start Installing---------
+
 future==0.18.2
 gTTS==2.2.3
 gitpython==3.1.27
@@ -27,8 +32,6 @@ Telethon==1.24.0
 telegraph==2.1.0
 heroku3==5.1.4
 spamwatch==0.3.0
-pyrate-limiter==2.6.0
-
 python-telegram-bot==13.11
 cachetools==4.2.2 # python-telegram-bot 13.11 depends on
 
